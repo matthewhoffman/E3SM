@@ -802,6 +802,9 @@ int parse_var_array(FILE *fd, ezxml_t registry, ezxml_t superStruct, ezxml_t var
 	const char *packagename;
 	const char *vararrtimelevs;
 
+	char package_list[2048];
+	int no_packages;
+
 	int err;
 
 	int iostreams;
@@ -829,6 +832,9 @@ int parse_var_array(FILE *fd, ezxml_t registry, ezxml_t superStruct, ezxml_t var
 	vararrtimelevs = ezxml_attr(var_arr_xml, "time_levs");
 	vararrname_in_code = ezxml_attr(var_arr_xml, "name_in_code");
 
+	package_list[0] = '\0';
+	no_packages = build_struct_package_lists(varArray, package_list);
+
 	if(!vararrtimelevs){
 		vararrtimelevs = ezxml_attr(superStruct, "time_levs");
 	}
@@ -850,7 +856,6 @@ int parse_var_array(FILE *fd, ezxml_t registry, ezxml_t superStruct, ezxml_t var
 
 	fortprintf(fd, "! Define var array %s\n", vararrname);
 	snprintf(spacing, 1024, "      ");
-
 
 	// Determine field type and default value.
 	get_field_information(vararrtype, vararrdefaultval, default_value, &type);
@@ -1119,10 +1124,10 @@ int parse_var_array(FILE *fd, ezxml_t registry, ezxml_t superStruct, ezxml_t var
 
 	// Parse packages if they are defined
 	fortprintf(fd, "\n");
-	spacing[0] = '\0';
-	if(vararrpackages != NULL){
+	snprintf(spacing, 1024, "      ");
+	if(!no_packages) {
 		fortprintf(fd, "      if (");
-		string = strdup(vararrpackages);
+		string = strdup(package_list);
 		tofree = string;
 		token = strsep(&string, ";");
 		fortprintf(fd, "%sActive", token);
@@ -1176,7 +1181,7 @@ int parse_var_array(FILE *fd, ezxml_t registry, ezxml_t superStruct, ezxml_t var
 	}
 	fortprintf(fd, "%scall mpas_pool_add_field(newSubPool, '%s', %s)\n", spacing, vararrname_in_code, pointer_name);
 
-	if(vararrpackages != NULL) {
+	if (!no_packages) {
 		fortprintf(fd, "      end if\n");
 	}
 

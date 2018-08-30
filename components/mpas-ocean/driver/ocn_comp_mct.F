@@ -1633,7 +1633,6 @@ contains
       call mpas_pool_get_field(forcingPool, 'atmosphericPressure', atmosphericPressureField)
       call mpas_pool_get_field(forcingPool, 'seaIcePressure', seaIcePressureField)
       call mpas_pool_get_field(forcingPool, 'iceFraction', iceFractionField)
-      call mpas_pool_get_field(forcingPool, 'iceRunoffFlux', iceRunoffFluxField)
 
       windStressZonal => windStressZonalField % array
       windStressMeridional => windStressMeridionalField % array
@@ -1653,7 +1652,6 @@ contains
       atmosphericPressure => atmosphericPressureField % array
       seaIcePressure => seaIcePressureField % array
       iceFraction => iceFractionField % array
-      iceRunoffFlux => iceRunoffFluxField % array
 
       ! BGC fields
       if (config_use_ecosysTracers) then
@@ -1736,7 +1734,15 @@ contains
            evaporationFlux(i) = x2o_o % rAttr(index_x2o_Foxx_evap, n)
         end if
         if ( seaIceHeatFluxField % isActive ) then
+           ! todo: a global search for seace heat flux, always add iceberg heat
+           ! flux Add these flux fields the same way seaIce
+           ! Add a scalar global sum of these fields to global stats.
+           ! Add global sum diagnostics for all new fields here just for initial
+           ! testing and review.
            seaIceHeatFlux(i) = x2o_o % rAttr(index_x2o_Fioi_melth, n)
+        end if
+        if ( icebergHeatFluxField % isActive ) then
+           icebergHeatFlux(i) = x2o_o % rAttr(index_x2o_Fioi_meltibh, n)
         end if
         if ( snowFluxField % isActive ) then
            snowFlux(i) = x2o_o % rAttr(index_x2o_Faxa_snow, n)
@@ -1745,10 +1751,16 @@ contains
         if ( seaIceFreshWaterFluxField % isActive ) then
            seaIceFreshWaterFlux(i) = x2o_o % rAttr(index_x2o_Fioi_meltw, n)
         end if
+        if ( icebergFreshWaterFluxField % isActive ) then
+           ! todo: a global search for seace heat flux, always add iceberg heat
+           ! flux
+           icebergFreshWaterFlux(i) = x2o_o % rAttr(index_x2o_Fioi_meltibw, n)
+        end if
         if ( seaIceSalinityFluxField % isActive ) then
            seaIceSalinityFlux(i) = x2o_o % rAttr(index_x2o_Fioi_salt, n)
         end if
         if ( riverRunoffFluxField % isActive ) then
+            ! check flag, 
            riverRunoffFlux(i) = x2o_o % rAttr(index_x2o_Foxx_rofl, n)
         end if
         if ( iceRunoffFluxField % isActive ) then
@@ -1757,6 +1769,16 @@ contains
                call shr_sys_abort ('Error: incoming rofi_F is negative')
            end if
         end if
+        ! check flag config_remove_AIS_coupler_runoff 
+        ! it needs to be within an isActive check on those variables.
+        ! first sum into removedRiverRunoffFlux and
+        ! iceRunoffFluxRemoved. Then zero out South of latitude of 60S.
+        ! Probably need to pull out latitude field.
+        ! 
+        ! removedRiverRunoffFlux and iceRunoffFluxRemoved are scalars, be sure
+        ! to initialize to zero before this loop.
+        ! need a global reduce on those two after the block loop.  Check
+        ! config_remove_AIS_coupler_runoff==.true. before reducing.
 
         if ( shortWaveHeatFluxField % isActive ) then
            shortWaveHeatFlux(i) = max(x2o_o % rAttr(index_x2o_Foxx_swnet, n), 0.0_RKIND)
@@ -1890,7 +1912,6 @@ contains
    call mpas_pool_get_field(forcingPool, 'atmosphericPressure', atmosphericPressureField)
    call mpas_pool_get_field(forcingPool, 'seaIcePressure', seaIcePressureField)
    call mpas_pool_get_field(forcingPool, 'iceFraction', iceFractionField)
-   call mpas_pool_get_field(forcingPool, 'iceRunoffFlux', iceRunoffFluxField)
 
    ! BGC fields
    if (config_use_ecosysTracers) then

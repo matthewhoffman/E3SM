@@ -1252,6 +1252,8 @@ add_default($nl, 'config_AM_timeFilters_compute_cell_centered_values');
 ####################################
 
 add_default($nl, 'config_AM_lagrPartTrack_enable');
+add_default($nl, 'config_AM_lagrPartTrack_global_dtParticle');
+add_default($nl, 'config_AM_lagrPartTrack_global_verticalTreatment');
 add_default($nl, 'config_AM_lagrPartTrack_compute_interval');
 add_default($nl, 'config_AM_lagrPartTrack_compute_on_startup');
 add_default($nl, 'config_AM_lagrPartTrack_output_stream');

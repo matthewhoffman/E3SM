@@ -3438,6 +3438,16 @@ Valid values: 0, 1, 2, ...
 Default: Defined in namelist_defaults.xml
 </entry>
 
+<entry id="config_AM_lagrPartTrack_global_dtParticle" type="real"
+	category="AM_lagrPartTrack" group="AM_lagrPartTrack">
+dt
+</entry>
+
+<entry id="config_AM_lagrPartTrack_global_verticalTreatment" type="integer"
+	category="AM_lagrPartTrack" group="AM_lagrPartTrack">
+Must be 4.
+</entry>
+
 <entry id="config_AM_lagrPartTrack_timeIntegration" type="integer"
 	category="AM_lagrPartTrack" group="AM_lagrPartTrack">
 type of temporal interpolation with possible_values='EE(1), RK2(2), RK4(4)' as ENUMs

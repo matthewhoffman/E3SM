@@ -156,9 +156,9 @@
 <config_use_standardGM ocn_grid="oQU240wLI">.true.</config_use_standardGM>
 <config_use_standardGM ocn_grid="oQU120">.true.</config_use_standardGM>
 <config_use_standardGM ocn_grid="oEC60to30">.true.</config_use_standardGM>
-<config_use_standardGM ocn_grid="oEC60to30v3">.true.</config_use_standardGM>
-<config_use_standardGM ocn_grid="oEC60to30wLI">.true.</config_use_standardGM>
-<config_use_standardGM ocn_grid="oEC60to30v3wLI">.true.</config_use_standardGM>
+<config_use_standardGM ocn_grid="oEC60to30v3">.false.</config_use_standardGM>
+<config_use_standardGM ocn_grid="oEC60to30wLI">.false.</config_use_standardGM>
+<config_use_standardGM ocn_grid="oEC60to30v3wLI">.false.</config_use_standardGM>
 <config_use_standardGM ocn_grid="oRRS30to10">.false.</config_use_standardGM>
 <config_use_standardGM ocn_grid="oRRS30to10v3">.false.</config_use_standardGM>
 <config_use_standardGM ocn_grid="oRRS30to10wLI">.false.</config_use_standardGM>
@@ -609,6 +609,8 @@
 
 <!-- AM_lagrPartTrack -->
 <config_AM_lagrPartTrack_enable>.false.</config_AM_lagrPartTrack_enable>
+<config_AM_lagrPartTrack_global_dtParticle>300</config_AM_lagrPartTrack_global_dtParticle>
+<config_AM_lagrPartTrack_global_verticalTreatment>4</config_AM_lagrPartTrack_global_verticalTreatment>
 <config_AM_lagrPartTrack_compute_interval>'dt'</config_AM_lagrPartTrack_compute_interval>
 <config_AM_lagrPartTrack_compute_on_startup>.false.</config_AM_lagrPartTrack_compute_on_startup>
 <config_AM_lagrPartTrack_output_stream>'lagrPartTrackOutput'</config_AM_lagrPartTrack_output_stream>

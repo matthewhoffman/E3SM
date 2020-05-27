@@ -61,17 +61,17 @@
     <OS>CNL</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>mpt</MPILIBS>
-    <PROJECT>acme</PROJECT>
-    <SAVE_TIMING_DIR>/project/projectdirs/acme</SAVE_TIMING_DIR>
-    <SAVE_TIMING_DIR_PROJECTS>acme,m3411,m3412</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/acme_scratch/cori-haswell</CIME_OUTPUT_ROOT>
-    <CIME_HTML_ROOT>/global/project/projectdirs/acme/www/$ENV{USER}</CIME_HTML_ROOT>
-    <CIME_URL_ROOT>http://portal.nersc.gov/project/acme/$ENV{USER}</CIME_URL_ROOT>
-    <DIN_LOC_ROOT>/project/projectdirs/acme/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/project/projectdirs/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <PROJECT>e3sm</PROJECT>
+    <SAVE_TIMING_DIR>/project/projectdirs/e3sm</SAVE_TIMING_DIR>
+    <SAVE_TIMING_DIR_PROJECTS>e3sm,m3411,m3412</SAVE_TIMING_DIR_PROJECTS>
+    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/e3sm_scratch/cori-haswell</CIME_OUTPUT_ROOT>
+    <CIME_HTML_ROOT>/global/project/projectdirs/e3sm/www/$ENV{USER}</CIME_HTML_ROOT>
+    <CIME_URL_ROOT>http://portal.nersc.gov/project/e3sm/$ENV{USER}</CIME_URL_ROOT>
+    <DIN_LOC_ROOT>/project/projectdirs/e3sm/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/project/projectdirs/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/project/projectdirs/acme/baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/project/projectdirs/acme/tools/cprnc.cori/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/project/projectdirs/e3sm/baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/project/projectdirs/e3sm/tools/cprnc.cori/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
     <NTEST_PARALLEL_JOBS>4</NTEST_PARALLEL_JOBS>
@@ -197,7 +197,7 @@
       <env name="OMP_PLACES">threads</env>
       <env name="HDF5_USE_FILE_LOCKING">FALSE</env>
 
-      <env name="PERL5LIB">/project/projectdirs/acme/perl5/lib/perl5/x86_64-linux-thread-multi</env>
+      <env name="PERL5LIB">/project/projectdirs/e3sm/perl5/lib/perl5/x86_64-linux-thread-multi</env>
     </environment_variables>
     <environment_variables compiler="intel">
       <env name="FORT_BUFFERED">yes</env>
@@ -211,17 +211,17 @@
     <OS>CNL</OS>
     <COMPILERS>intel,gnu,intel19</COMPILERS>
     <MPILIBS>mpt,impi</MPILIBS>
-    <PROJECT>acme</PROJECT>
-    <SAVE_TIMING_DIR>/project/projectdirs/acme</SAVE_TIMING_DIR>
-    <SAVE_TIMING_DIR_PROJECTS>acme,m3411,m3412</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/acme_scratch/cori-knl</CIME_OUTPUT_ROOT>
-    <CIME_HTML_ROOT>/global/project/projectdirs/acme/www/$ENV{USER}</CIME_HTML_ROOT>
-    <CIME_URL_ROOT>http://portal.nersc.gov/project/acme/$ENV{USER}</CIME_URL_ROOT>
-    <DIN_LOC_ROOT>/project/projectdirs/acme/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/project/projectdirs/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <PROJECT>e3sm</PROJECT>
+    <SAVE_TIMING_DIR>/project/projectdirs/e3sm</SAVE_TIMING_DIR>
+    <SAVE_TIMING_DIR_PROJECTS>e3sm,m3411,m3412</SAVE_TIMING_DIR_PROJECTS>
+    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/e3sm_scratch/cori-knl</CIME_OUTPUT_ROOT>
+    <CIME_HTML_ROOT>/global/project/projectdirs/e3sm/www/$ENV{USER}</CIME_HTML_ROOT>
+    <CIME_URL_ROOT>http://portal.nersc.gov/project/e3sm/$ENV{USER}</CIME_URL_ROOT>
+    <DIN_LOC_ROOT>/project/projectdirs/e3sm/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/project/projectdirs/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/project/projectdirs/acme/baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/project/projectdirs/acme/tools/cprnc.cori/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/project/projectdirs/e3sm/baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/project/projectdirs/e3sm/tools/cprnc.cori/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
     <NTEST_PARALLEL_JOBS>4</NTEST_PARALLEL_JOBS>
@@ -358,7 +358,7 @@
       <env name="OMP_PLACES">threads</env>
       <env name="HDF5_USE_FILE_LOCKING">FALSE</env>
 
-      <env name="PERL5LIB">/project/projectdirs/acme/perl5/lib/perl5/x86_64-linux-thread-multi</env>
+      <env name="PERL5LIB">/project/projectdirs/e3sm/perl5/lib/perl5/x86_64-linux-thread-multi</env>
     </environment_variables>
 
     <environment_variables mpilib="mpt">
@@ -381,8 +381,8 @@
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>impi</MPILIBS>
     <SAVE_TIMING_DIR>$ENV{SCRATCH}</SAVE_TIMING_DIR>
-    <SAVE_TIMING_DIR_PROJECTS>acme</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/acme_scratch/stampede2</CIME_OUTPUT_ROOT>
+    <SAVE_TIMING_DIR_PROJECTS>e3sm</SAVE_TIMING_DIR_PROJECTS>
+    <CIME_OUTPUT_ROOT>$ENV{SCRATCH}/e3sm_scratch/stampede2</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>$ENV{SCRATCH}/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>$ENV{SCRATCH}/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
@@ -465,11 +465,11 @@
     <OS>Darwin</OS>
     <COMPILERS>gnu</COMPILERS>
     <MPILIBS>openmpi,mpich</MPILIBS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/projects/acme/scratch</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>$ENV{HOME}/projects/acme/cesm-inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>$ENV{HOME}/projects/acme/ptclm-data</DIN_LOC_ROOT_CLMFORC>
-    <DOUT_S_ROOT>$ENV{HOME}/projects/acme/scratch/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>$ENV{HOME}/projects/acme/baselines/$COMPILER</BASELINE_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/projects/e3sm/scratch</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>$ENV{HOME}/projects/e3sm/cesm-inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>$ENV{HOME}/projects/e3sm/ptclm-data</DIN_LOC_ROOT_CLMFORC>
+    <DOUT_S_ROOT>$ENV{HOME}/projects/e3sm/scratch/archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>$ENV{HOME}/projects/e3sm/baselines/$COMPILER</BASELINE_ROOT>
     <CCSM_CPRNC>$CCSMROOT/tools/cprnc/build/cprnc</CCSM_CPRNC>
     <GMAKE_J>4</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
@@ -482,8 +482,8 @@
       <arguments/>
     </mpirun>
     <module_system type="none"/>
-    <RUNDIR>$ENV{HOME}/projects/acme/scratch/$CASE/run</RUNDIR>
-    <EXEROOT>$ENV{HOME}/projects/acme/scratch/$CASE/bld</EXEROOT>
+    <RUNDIR>$ENV{HOME}/projects/e3sm/scratch/$CASE/run</RUNDIR>
+    <EXEROOT>$ENV{HOME}/projects/e3sm/scratch/$CASE/bld</EXEROOT>
     <!-- cmake -DCMAKE_Fortran_COMPILER=/opt/local/bin/mpif90-mpich-gcc48 -DHDF5_DIR=/opt/local -DNetcdf_INCLUDE_DIR=/opt/local/include .. -->
     <!--    <GMAKE>make</GMAKE> <- this doesn't actually work! -->
   </machine>
@@ -494,11 +494,11 @@
     <OS>LINUX</OS>
     <COMPILERS>gnu</COMPILERS>
     <MPILIBS>openmpi,mpich</MPILIBS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/projects/acme/scratch</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>$ENV{HOME}/projects/acme/cesm-inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>$ENV{HOME}/projects/acme/ptclm-data</DIN_LOC_ROOT_CLMFORC>
-    <DOUT_S_ROOT>$ENV{HOME}/projects/acme/scratch/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>$ENV{HOME}/projects/acme/baselines/$COMPILER</BASELINE_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/projects/e3sm/scratch</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>$ENV{HOME}/projects/e3sm/cesm-inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>$ENV{HOME}/projects/e3sm/ptclm-data</DIN_LOC_ROOT_CLMFORC>
+    <DOUT_S_ROOT>$ENV{HOME}/projects/e3sm/scratch/archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>$ENV{HOME}/projects/e3sm/baselines/$COMPILER</BASELINE_ROOT>
     <CCSM_CPRNC>$CCSMROOT/tools/cprnc/build/cprnc</CCSM_CPRNC>
     <GMAKE_J>4</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
@@ -513,8 +513,8 @@
       </arguments>
     </mpirun>
     <module_system type="none"/>
-    <RUNDIR>$ENV{HOME}/projects/acme/scratch/$CASE/run</RUNDIR>
-    <EXEROOT>$ENV{HOME}/projects/acme/scratch/$CASE/bld</EXEROOT>
+    <RUNDIR>$ENV{HOME}/projects/e3sm/scratch/$CASE/run</RUNDIR>
+    <EXEROOT>$ENV{HOME}/projects/e3sm/scratch/$CASE/bld</EXEROOT>
     <!-- cmake -DCMAKE_Fortran_COMPILER=/opt/local/bin/mpif90-mpich-gcc48 -DHDF5_DIR=/opt/local -DNetcdf_INCLUDE_DIR=/opt/local/include .. -->
     <!--    <GMAKE>make</GMAKE> <- this doesn't actually work! -->
   </machine>
@@ -528,7 +528,7 @@
     <MPILIBS>openmpi</MPILIBS>
     <SAVE_TIMING_DIR>/sems-data-store/ACME/timings</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>.*</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme/scratch</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm/scratch</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/sems-data-store/ACME/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/sems-data-store/ACME/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
@@ -559,9 +559,9 @@
       <modules>
         <command name="purge"/>
         <command name="load">sems-env</command>
-        <command name="load">acme-env</command>
+        <command name="load">e3sm-env</command>
         <command name="load">sems-git</command>
-        <command name="load">acme-binutils</command>
+        <command name="load">e3sm-binutils</command>
         <command name="load">sems-python/2.7.9</command>
         <command name="load">sems-cmake/3.12.2</command>
       </modules>
@@ -573,11 +573,11 @@
       </modules>
       <modules mpilib="mpi-serial">
         <command name="load">sems-netcdf/4.4.1/exo</command>
-        <command name="load">acme-pfunit/3.2.8/base</command>
+        <command name="load">e3sm-pfunit/3.2.8/base</command>
       </modules>
       <modules mpilib="!mpi-serial">
-        <command name="load">acme-openmpi/2.1.5/acme</command>
-        <command name="load">acme-netcdf/4.4.1/acme</command>
+        <command name="load">e3sm-openmpi/2.1.5/acme</command>
+        <command name="load">e3sm-netcdf/4.4.1/acme</command>
       </modules>
     </module_system>
     <RUNDIR>$CIME_OUTPUT_ROOT/$CASE/run</RUNDIR>
@@ -685,12 +685,12 @@
     <OS>LINUX</OS>
     <COMPILERS>gnu</COMPILERS>
     <MPILIBS>mpich</MPILIBS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme/scratch</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>/home/climate1/acme/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/home/climate1/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm/scratch</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>/home/climate1/e3sm/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/home/climate1/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/home/climate1/acme/baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/home/climate1/acme/cprnc/build/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/home/climate1/e3sm/baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/home/climate1/e3sm/cprnc/build/cprnc</CCSM_CPRNC>
     <GMAKE>make</GMAKE>
     <GMAKE_J>32</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
@@ -754,7 +754,7 @@
     <PROJECT>fy190158</PROJECT>
     <SAVE_TIMING_DIR>/projects/ccsm/timings</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>.*</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>/gpfs1/$USER/acme_scratch/sandiatoss3</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>/gpfs1/$USER/e3sm_scratch/sandiatoss3</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/projects/ccsm/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/projects/ccsm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
@@ -803,7 +803,7 @@
         <command name="load">sems-netcdf/4.4.1/exo</command>
       </modules>
     </module_system>
-    <RUNDIR>/gscratch/$USER/acme_scratch/sandiatoss3/$CASE/run</RUNDIR>
+    <RUNDIR>/gscratch/$USER/e3sm_scratch/sandiatoss3/$CASE/run</RUNDIR>
     <EXEROOT>$CIME_OUTPUT_ROOT/$CASE/bld</EXEROOT>
     <!-- complete path to a short term archiving directory -->
     <!-- path to the cprnc tool used to compare netcdf history files in testing -->
@@ -829,7 +829,7 @@
     <MPILIBS>openmpi</MPILIBS>
     <PROJECT>fy190158</PROJECT>
 
-    <CIME_OUTPUT_ROOT>/gscratch/$USER/acme_scratch/ghost</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>/gscratch/$USER/e3sm_scratch/ghost</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/projects/ccsm/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/projects/ccsm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
@@ -898,17 +898,17 @@
     <COMPILERS>gnu,pgi,intel,nag</COMPILERS>
     <MPILIBS>mvapich,mpich,openmpi</MPILIBS>
     <PROJECT>ACME</PROJECT>
-    <CIME_OUTPUT_ROOT>/lcrc/project/$PROJECT/$USER/acme_scratch</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>/lcrc/project/$PROJECT/$USER/e3sm_scratch</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/home/ccsm-data/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/home/ccsm-data/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>/lcrc/project/ACME/$USER/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/lcrc/group/acme/acme_baselines/blues/$COMPILER</BASELINE_ROOT>
+    <BASELINE_ROOT>/lcrc/group/e3sm/acme_baselines/blues/$COMPILER</BASELINE_ROOT>
     <CCSM_CPRNC>/home/ccsm-data/tools/cprnc</CCSM_CPRNC>
     <GMAKE_J>4</GMAKE_J>
     <TESTS>e3sm_integration</TESTS>
     <NTEST_PARALLEL_JOBS>4</NTEST_PARALLEL_JOBS>
     <BATCH_SYSTEM>pbs</BATCH_SYSTEM>
-    <SUPPORTED_BY>acme</SUPPORTED_BY>
+    <SUPPORTED_BY>e3sm</SUPPORTED_BY>
     <MAX_TASKS_PER_NODE>16</MAX_TASKS_PER_NODE>
     <MAX_MPITASKS_PER_NODE>16</MAX_MPITASKS_PER_NODE>
     <PROJECT_REQUIRED>TRUE</PROJECT_REQUIRED>
@@ -1000,14 +1000,14 @@
     <COMPILERS>intel,intel18,gnu</COMPILERS>
     <MPILIBS>mvapich</MPILIBS>
     <PROJECT>condo</PROJECT>
-    <SAVE_TIMING_DIR>/lcrc/group/acme</SAVE_TIMING_DIR>
+    <SAVE_TIMING_DIR>/lcrc/group/e3sm</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>.*</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>/lcrc/group/acme/$USER/acme_scratch/anvil</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>/lcrc/group/e3sm/$USER/acme_scratch/anvil</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/home/ccsm-data/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/home/ccsm-data/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
-    <DOUT_S_ROOT>/lcrc/group/acme/$USER/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/lcrc/group/acme/acme_baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/lcrc/group/acme/tools/cprnc/cprnc</CCSM_CPRNC>
+    <DOUT_S_ROOT>/lcrc/group/e3sm/$USER/archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>/lcrc/group/e3sm/acme_baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/lcrc/group/e3sm/tools/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <TESTS>e3sm_integration</TESTS>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
@@ -1079,7 +1079,7 @@
     <environment_variables>
       <env name="NETCDF_C_PATH">$SHELL{dirname $(dirname $(which nc-config))}</env>
       <env name="NETCDF_FORTRAN_PATH">$SHELL{dirname $(dirname $(which nf-config))}</env>
-      <env name="PATH">/lcrc/group/acme/soft/perl/5.26.0/bin:$ENV{PATH}</env>
+      <env name="PATH">/lcrc/group/e3sm/soft/perl/5.26.0/bin:$ENV{PATH}</env>
     </environment_variables>
     <environment_variables mpilib="!mpi-serial">
       <env name="PNETCDF_PATH">$SHELL{dirname $(dirname $(which pnetcdf_version))}</env>
@@ -1110,13 +1110,13 @@
     <OS>LINUX</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>impi,mvapich</MPILIBS>
-    <PROJECT>acme</PROJECT>
-    <CIME_OUTPUT_ROOT>/lcrc/group/acme/$USER/acme_scratch/bebop</CIME_OUTPUT_ROOT>
+    <PROJECT>e3sm</PROJECT>
+    <CIME_OUTPUT_ROOT>/lcrc/group/e3sm/$USER/acme_scratch/bebop</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/home/ccsm-data/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/home/ccsm-data/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/lcrc/group/acme/acme_baselines/bebop/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/lcrc/group/acme/tools/cprnc/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/lcrc/group/e3sm/acme_baselines/bebop/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/lcrc/group/e3sm/tools/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <TESTS>e3sm_integration</TESTS>
     <NTEST_PARALLEL_JOBS>4</NTEST_PARALLEL_JOBS>
@@ -1190,7 +1190,7 @@
     <environment_variables>
       <env name="NETCDF_C_PATH">$SHELL{which nc-config | xargs dirname | xargs dirname}</env>
       <env name="NETCDF_FORTRAN_PATH">$SHELL{which nf-config | xargs dirname | xargs dirname}</env>
-      <env name="PATH">/lcrc/group/acme/soft/perl/5.26.0/bin:$ENV{PATH}</env>
+      <env name="PATH">/lcrc/group/e3sm/soft/perl/5.26.0/bin:$ENV{PATH}</env>
     </environment_variables>
     <environment_variables mpilib="!mpi-serial">
       <env name="PNETCDF_PATH">$SHELL{which pnetcdf_version | xargs dirname | xargs dirname}</env>
@@ -1445,11 +1445,11 @@
     <SAVE_TIMING_DIR>/projects/$PROJECT</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>ClimateEnergy_3,ClimateEnergy_4,OceanClimate_2</SAVE_TIMING_DIR_PROJECTS>
     <CIME_OUTPUT_ROOT>/projects/$PROJECT/$USER</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>/projects/ccsm/acme/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/projects/ccsm/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <DIN_LOC_ROOT>/projects/ccsm/e3sm/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/projects/ccsm/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/projects/$PROJECT/acme/baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/projects/ccsm/acme/tools/cprnc/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/projects/$PROJECT/e3sm/baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/projects/ccsm/e3sm/tools/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>16</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
     <NTEST_PARALLEL_JOBS>4</NTEST_PARALLEL_JOBS>
@@ -1520,7 +1520,7 @@
     <environment_variables>
       <env name="MPICH_ENV_DISPLAY">1</env>
       <env name="MPICH_VERSION_DISPLAY">1</env>
-      <env name="MPAS_TOOL_DIR">/projects/ccsm/acme/tools/mpas</env>
+      <env name="MPAS_TOOL_DIR">/projects/ccsm/e3sm/tools/mpas</env>
       <env name="HDF5_DISABLE_VERSION_CHECK">1</env>
       <env name="labeling">-e PMI_LABEL_ERROUT=1</env>
       <env name="SMP_VARS"> </env>
@@ -1539,14 +1539,14 @@
     <OS>LINUX</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>mpich</MPILIBS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme/scratch</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>/home/azamat/acme/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/home/azamat/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm/scratch</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>/home/azamat/e3sm/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/home/azamat/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>$ENV{HOME}/acme/baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/home/azamat/acme/tools/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>$ENV{HOME}/e3sm/baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/home/azamat/e3sm/tools/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
-    <TESTS>acme_developer</TESTS>
+    <TESTS>e3sm_developer</TESTS>
     <BATCH_SYSTEM>cobalt_theta</BATCH_SYSTEM>
     <SUPPORTED_BY>e3sm</SUPPORTED_BY>
     <MAX_TASKS_PER_NODE>128</MAX_TASKS_PER_NODE>
@@ -1609,8 +1609,8 @@
     <DIN_LOC_ROOT>/lustre/climate/csmdata/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/climate/csmdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>/lustre/$USER/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/lustre/climate/acme_baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/lustre/climate/acme_baselines/cprnc/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/lustre/climate/e3sm_baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/lustre/climate/e3sm_baselines/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>balwinder.singh -at- pnnl.gov</SUPPORTED_BY>
@@ -1677,11 +1677,11 @@
     <COMPILERS>intel</COMPILERS>
     <MPILIBS>impi,mvapich2</MPILIBS>
     <CIME_OUTPUT_ROOT>/dtemp/$PROJECT/$USER</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>/dtemp/st49401/sing201/acme/inputdata/</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/dtemp/st49401/sing201/acme/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <DIN_LOC_ROOT>/dtemp/st49401/sing201/e3sm/inputdata/</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/dtemp/st49401/sing201/e3sm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>$CIME_OUTPUT_ROOT/acme/acme_baselines</BASELINE_ROOT>
-    <CCSM_CPRNC>$CIME_OUTPUT_ROOT/acme/acme_baselines/cprnc/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>$CIME_OUTPUT_ROOT/e3sm/acme_baselines</BASELINE_ROOT>
+    <CCSM_CPRNC>$CIME_OUTPUT_ROOT/e3sm/acme_baselines/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>balwinder.singh -at- pnnl.gov</SUPPORTED_BY>
@@ -1755,8 +1755,8 @@
     <DIN_LOC_ROOT>/pic/projects/climate/csmdata/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/pic/projects/climate/csmdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>/pic/scratch/$USER/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/pic/projects/climate/acme_baselines/$COMPILER</BASELINE_ROOT>
-    <CCSM_CPRNC>/pic/projects/climate/acme_baselines/cprnc/cprnc</CCSM_CPRNC>
+    <BASELINE_ROOT>/pic/projects/climate/e3sm_baselines/$COMPILER</BASELINE_ROOT>
+    <CCSM_CPRNC>/pic/projects/climate/e3sm_baselines/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>8</GMAKE_J>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>balwinder.singh -at- pnnl.gov</SUPPORTED_BY>
@@ -2006,10 +2006,10 @@
     <COMPILERS>gnu,intel</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
     <CIME_OUTPUT_ROOT>/lustre/or-hydra/cades-ccsi/scratch/$USER</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>/lustre/or-hydra/cades-ccsi/proj-shared/project_acme/ACME_inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>/lustre/or-hydra/cades-ccsi/proj-shared/project_acme/ACME_inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+    <DIN_LOC_ROOT>/lustre/or-hydra/cades-ccsi/proj-shared/project_e3sm/ACME_inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/lustre/or-hydra/cades-ccsi/proj-shared/project_e3sm/ACME_inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/lustre/or-hydra/cades-ccsi/proj-shared/project_acme/baselines/$COMPILER</BASELINE_ROOT>
+    <BASELINE_ROOT>/lustre/or-hydra/cades-ccsi/proj-shared/project_e3sm/baselines/$COMPILER</BASELINE_ROOT>
     <CCSM_CPRNC>/lustre/or-hydra/cades-ccsi/proj-shared/tools/cprnc.orcondo</CCSM_CPRNC>
     <GMAKE_J>4</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
@@ -2075,7 +2075,7 @@
     <PROJECT>cli115</PROJECT>
     <SAVE_TIMING_DIR>$ENV{PROJWORK}/$PROJECT</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>cli106,cli115,cli127,cli133,csc190</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme_scratch/$PROJECT</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm_scratch/$PROJECT</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/lustre/atlas1/cli900/world-shared/cesm/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/atlas1/cli900/world-shared/cesm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$ENV{MEMBERWORK}/$PROJECT/archive/$CASE</DOUT_S_ROOT>
@@ -2227,7 +2227,7 @@
     <MPILIBS>mpich</MPILIBS>
     <SAVE_TIMING_DIR>$ENV{PROJWORK}/$PROJECT</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>cli115,cli127,cli106,csc190</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme_scratch/$PROJECT</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm_scratch/$PROJECT</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/lustre/atlas1/cli900/world-shared/cesm/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/atlas1/cli900/world-shared/cesm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$ENV{MEMBERWORK}/$PROJECT/archive/$CASE</DOUT_S_ROOT>
@@ -2316,7 +2316,7 @@
     <OS>LINUX</OS>
     <COMPILERS>gnu,intel</COMPILERS>
     <MPILIBS>mvapich,openmpi</MPILIBS>
-    <PROJECT>climateacme</PROJECT>
+    <PROJECT>climatee3sm</PROJECT>
     <CIME_OUTPUT_ROOT>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/scratch</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/input_data</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/input_data/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -2403,7 +2403,7 @@
     <OS>LINUX</OS>
     <COMPILERS>gnu,intel</COMPILERS>
     <MPILIBS>mvapich,openmpi</MPILIBS>
-    <PROJECT>climateacme</PROJECT>
+    <PROJECT>climatee3sm</PROJECT>
     <CIME_OUTPUT_ROOT>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/scratch</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/input_data</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/scratch3/turquoise/$ENV{USER}/E3SM/input_data/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -2573,7 +2573,7 @@
     <OS>LINUX</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
-    <CHARGE_ACCOUNT>ac_acme</CHARGE_ACCOUNT>
+    <CHARGE_ACCOUNT>ac_e3sm</CHARGE_ACCOUNT>
     <CIME_OUTPUT_ROOT>/global/scratch/$ENV{USER}</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/global/scratch/$ENV{USER}/cesm_input_datasets/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/global/scratch/$ENV{USER}/cesm_input_datasets/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -2650,7 +2650,7 @@
     <OS>LINUX</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
-    <CHARGE_ACCOUNT>ac_acme</CHARGE_ACCOUNT>
+    <CHARGE_ACCOUNT>ac_e3sm</CHARGE_ACCOUNT>
     <CIME_OUTPUT_ROOT>/global/scratch/$ENV{USER}</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/global/scratch/$ENV{USER}/cesm_input_datasets/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/global/scratch/$ENV{USER}/cesm_input_datasets/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -2727,7 +2727,7 @@
     <OS>LINUX</OS>
     <COMPILERS>intel,gnu</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
-    <CHARGE_ACCOUNT>ac_acme</CHARGE_ACCOUNT>
+    <CHARGE_ACCOUNT>ac_e3sm</CHARGE_ACCOUNT>
     <CIME_OUTPUT_ROOT>/global/scratch/$ENV{USER}</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/global/scratch/$ENV{USER}/cesm_input_datasets/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/global/scratch/$ENV{USER}/cesm_input_datasets/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -2804,11 +2804,11 @@
     <COMPILERS>gnu</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
     <PROJECT>ngeet</PROJECT>
-    <CIME_OUTPUT_ROOT>/home/lbleco/acme/</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>/home/lbleco/e3sm/</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/home/lbleco/cesm/cesm_input_datasets/</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/home/lbleco/cesm/cesm_input_datasets/atm/datm7/</DIN_LOC_ROOT_CLMFORC>
-    <DOUT_S_ROOT>/home/lbleco/acme/cesm_archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>/home/lbleco/acme/cesm_baselines/$COMPILER</BASELINE_ROOT>
+    <DOUT_S_ROOT>/home/lbleco/e3sm/cesm_archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>/home/lbleco/e3sm/cesm_baselines/$COMPILER</BASELINE_ROOT>
     <CCSM_CPRNC>/home/lbleco/cesm/cesm_tools/cprnc/cprnc</CCSM_CPRNC>
     <GMAKE_J>1</GMAKE_J>
     <BATCH_SYSTEM>none</BATCH_SYSTEM>
@@ -2839,7 +2839,7 @@
     <CHARGE_ACCOUNT>CSC249ADSE15</CHARGE_ACCOUNT>
     <SAVE_TIMING_DIR>/lustre/atlas/proj-shared/$PROJECT</SAVE_TIMING_DIR>
     <SAVE_TIMING_DIR_PROJECTS>cli115,cli127,cli106,csc190</SAVE_TIMING_DIR_PROJECTS>
-    <CIME_OUTPUT_ROOT>$ENV{HOME}/acme_scratch/$PROJECT</CIME_OUTPUT_ROOT>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/e3sm_scratch/$PROJECT</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/lustre/atlas1/cli900/world-shared/cesm/inputdata</DIN_LOC_ROOT>
     <DIN_LOC_ROOT_CLMFORC>/lustre/atlas1/cli900/world-shared/cesm/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>/lustre/atlas/scratch/$ENV{USER}/$PROJECT/archive/$CASE</DOUT_S_ROOT>
@@ -2848,7 +2848,7 @@
     <GMAKE_J>32</GMAKE_J>
     <TESTS>e3sm_developer</TESTS>
     <BATCH_SYSTEM>lsf</BATCH_SYSTEM>
-    <SUPPORTED_BY>acme</SUPPORTED_BY>
+    <SUPPORTED_BY>e3sm</SUPPORTED_BY>
     <MAX_TASKS_PER_NODE>160</MAX_TASKS_PER_NODE>
     <MAX_MPITASKS_PER_NODE>80</MAX_MPITASKS_PER_NODE>
     <PROJECT_REQUIRED>TRUE</PROJECT_REQUIRED>

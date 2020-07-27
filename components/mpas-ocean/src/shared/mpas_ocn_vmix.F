@@ -908,7 +908,7 @@ contains
 
       integer :: iEdge, k, cell1, cell2, N, nEdges
       integer, pointer :: nVertLevels
-      real (kind=RKIND) :: implicitCd
+      real (kind=RKIND) :: implicitCd, varmin
       integer, dimension(:), pointer :: nEdgesArray
 
       integer, dimension(:), pointer :: maxLevelEdgeTop
@@ -950,7 +950,8 @@ contains
          ! average cell-based implicit bottom drag following the formulation
          ! in HYCOM (reference : NCOM's formula for 2D case 
          !cb(i,j) = max(cbmin, (vonk/log(0.5*depth(i,j)/z0))**2 ))
-        implicitCd =max(0.0025,min(0.16/log(0.5*0.5*((bottomDepth(cell1)+bottomDepth(cell2))/0.001)**2.0),0.1))        
+        varmin=min(0.16_RKIND/(log(0.5_RKIND*0.5_RKIND*(bottomDepth(cell1)+bottomDepth(cell2))/0.001))**2.0,0.1)
+        implicitCd =max(0.0025_RKIND,varmin)        
         !! if((implicitCd.ge.0.1).or.(implicitCd.le.0.0001))then
         !!implicitCd=0.0025
         !!endif

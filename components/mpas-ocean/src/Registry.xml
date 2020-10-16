@@ -930,9 +930,9 @@
 					possible_values=".true. or .false."
 		/>
 		<nml_option name="config_use_implicit_bottom_roughness" type="logical" default_value=".false." units="unitless"
-                                        description="If true, depends on bottom roughness z0"
-                                        possible_values=".true. or .false."
-                />
+					description="If true, depends on bottom roughness z0"
+					possible_values=".true. or .false."
+		/>
 		<nml_option name="config_use_explicit_bottom_drag" type="logical" default_value=".false." units="unitless"
 					description="If true, explicit bottom drag is used on the momentum equation."
 					possible_values=".true. or .false."

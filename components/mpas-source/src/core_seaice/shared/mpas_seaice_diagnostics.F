@@ -1,3 +1,4 @@
+!!! Add line within seaice core
 !|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 !
 !  seaice_diagnostics

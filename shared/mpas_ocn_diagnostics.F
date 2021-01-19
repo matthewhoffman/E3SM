@@ -1,4 +1,4 @@
-!!! PR #3 test: Add line within ocean core
+!!! PR #3 test: Add line within ocean core - more text
 !!! PR #2 test: Add second line within ocean core
 !! text from second commit
 !!! Add line within ocean core

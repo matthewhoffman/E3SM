@@ -43,3 +43,6 @@
 [submodule "components/mpas-source/src/core_ocean/cvmix"]
 	path = components/mpas-source/src/core_ocean/cvmix
 	url = https://github.com/CVMix/CVMix-src.git
+[submodule "components/mpas-source/src/core_ocean/BGC"]
+	path = components/mpas-source/src/core_ocean/BGC
+	url = https://github.com/E3SM-Project/Ocean-BGC.git

@@ -4,6 +4,7 @@
 
 
 <!-- run_modes -->
+<!-- alter namelist file !! -->
 <config_ocean_run_mode>'forward'</config_ocean_run_mode>
 
 <!-- time_management -->

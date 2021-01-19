@@ -1,3 +1,4 @@
+!!! PR #3 test: Add second line within seaice core
 !!! PR #2 test: Add second line within seaice core
 !! text from second commit
 !!! Add line within seaice core

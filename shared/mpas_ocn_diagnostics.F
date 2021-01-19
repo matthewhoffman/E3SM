@@ -1,4 +1,5 @@
-!!! PR #2 test: Add second line within seaice core
+!!! PR #3 test: Add line within ocean core
+!!! PR #2 test: Add second line within ocean core
 !! text from second commit
 !!! Add line within ocean core
 ! Copyright (c) 2013,  Los Alamos National Security, LLC (LANS)

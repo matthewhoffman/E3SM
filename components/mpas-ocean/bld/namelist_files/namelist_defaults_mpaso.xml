@@ -4,6 +4,7 @@
 
 
 <!-- run_modes -->
+<!-- !!! PR #2 test: Add second line within seaice core-->
 <!-- alter namelist file !! -->
 <config_ocean_run_mode>'forward'</config_ocean_run_mode>
 

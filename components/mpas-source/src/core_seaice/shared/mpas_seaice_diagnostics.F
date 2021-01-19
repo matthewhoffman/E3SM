@@ -1,3 +1,4 @@
+!!! PR #2 test: Add second line within seaice core
 !!! Add line within seaice core
 !|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 !

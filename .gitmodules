@@ -43,3 +43,6 @@
 	url = git@github.com:NVlabs/cub.git
 [submodule "Submod"]
 	branch = rljacob/e3smconfig/elm-name
+[submodule "components/mpas-ocean/src/cvmix"]
+	path = components/mpas-ocean/src/cvmix
+	url = https://github.com/CVMix/CVMix-src.git

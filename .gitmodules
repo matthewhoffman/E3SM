@@ -1,3 +1,0 @@
-[submodule "src/core_ocean/cvmix"]
-	path = src/core_ocean/cvmix
-	url = https://github.com/CVMix/CVMix-src.git

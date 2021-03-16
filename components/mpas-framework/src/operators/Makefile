@@ -11,7 +11,7 @@ OBJS = mpas_vector_operations.o \
        mpas_tracer_advection_std.o \
        mpas_geometry_utils.o
 
-DEPS := $(shell find ../$(CORE_DIR)/ -type f -name "*.xml" ! -name "*processed.xml")
+DEPS := $(shell find ../core_$(CORE)/ -type f -name "*.xml" ! -name "*processed.xml")
 
 all: operators
 

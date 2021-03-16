@@ -5,19 +5,16 @@ function(build_core CORE)
   # Map the ESM component corresponding to each MPAS core
   if (CORE STREQUAL "ocean")
     set(COMPONENT "ocn")
-    set(CORE_DIR "../../mpas-ocean/src")
   elseif(CORE STREQUAL "landice")
     set(COMPONENT "glc")
-    set(CORE_DIR "core_landice")
   elseif(CORE STREQUAL "seaice")
     set(COMPONENT "ice")
-    set(CORE_DIR "../../mpas-seaice/src")
   else()
     message(FATAL_ERROR "Unrecognized core: ${CORE}")
   endif()
 
   # Gather sources
-  set(CORE_BLDDIR ${CMAKE_BINARY_DIR}/${CORE_DIR})
+  set(CORE_BLDDIR ${CMAKE_BINARY_DIR}/core_${CORE})
   if (NOT EXISTS ${CORE_BLDDIR})
     file(MAKE_DIRECTORY ${CORE_BLDDIR})
   endif()
@@ -28,7 +25,7 @@ function(build_core CORE)
   endif()
 
   # Provides us RAW_SOURCES, CPPDEFS, and INCLUDES
-  include(${CMAKE_CURRENT_SOURCE_DIR}/${CORE_DIR}/${CORE}.cmake)
+  include(${CMAKE_CURRENT_SOURCE_DIR}/core_${CORE}/${CORE}.cmake)
 
   add_library(${COMPONENT})
   target_compile_definitions(${COMPONENT} PRIVATE ${CPPDEFS})
@@ -38,8 +35,8 @@ function(build_core CORE)
   add_custom_command (
     OUTPUT ${CORE_BLDDIR}/Registry_processed.xml
     COMMAND cpp -P -traditional ${CPPDEFS} -Uvector
-    ${CMAKE_CURRENT_SOURCE_DIR}/${CORE_DIR}/Registry.xml > Registry_processed.xml
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/${CORE_DIR}/Registry.xml
+    ${CMAKE_CURRENT_SOURCE_DIR}/core_${CORE}/Registry.xml > Registry_processed.xml
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/core_${CORE}/Registry.xml
     WORKING_DIRECTORY ${CORE_BLDDIR}
     )
 

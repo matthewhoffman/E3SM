@@ -4,6 +4,16 @@ ifneq "${MPAS_SHELL}" ""
         SHELL = ${MPAS_SHELL}
 endif
 
+ifeq "$(CORE)" "ocean"
+CORE_DIR=../../mpas-ocean/src
+else ifeq "$(CORE)" "seaice"
+CORE_DIR=../../mpas-seaice/src
+else ifeq "$(CORE)" "landice"
+CORE_DIR=../../mpas-landice/src
+else
+CORE_DIR=core_$(CORE)
+endif
+
 dummy:
 	( $(MAKE) error )
 
@@ -673,10 +683,10 @@ RANLIB = ranlib
 
 ifdef CORE
 
-ifneq ($(wildcard src/core_$(CORE)), ) # CHECK FOR EXISTENCE OF CORE DIRECTORY
+ifneq ($(wildcard src/$(CORE_DIR)), ) # CHECK FOR EXISTENCE OF CORE DIRECTORY
 
-ifneq ($(wildcard src/core_$(CORE)/build_options.mk), ) # Check for build_options.mk
-include src/core_$(CORE)/build_options.mk
+ifneq ($(wildcard src/$(CORE_DIR)/build_options.mk), ) # Check for build_options.mk
+include src/$(CORE_DIR)/build_options.mk
 else # ELSE Use Default Options
 EXE_NAME=$(CORE)_model
 NAMELIST_SUFFIX=$(CORE)
@@ -851,7 +861,7 @@ endif
 
 ifneq ($(wildcard .mpas_core_*), ) # CHECK FOR BUILT CORE
 
-ifneq ($(wildcard .mpas_core_$(CORE)), ) # CHECK FOR SAME CORE AS ATTEMPTED BUILD.
+ifneq ($(wildcard .mpas_$(CORE)), ) # CHECK FOR SAME CORE AS ATTEMPTED BUILD.
 	override AUTOCLEAN=false
 	CONTINUE=true
 else
@@ -913,13 +923,13 @@ ifdef MPAS_EXTERNAL_CPPFLAGS
 endif
 ####################################################
 
-ifeq ($(wildcard src/core_$(CORE)), ) # CHECK FOR EXISTENCE OF CORE DIRECTORY
+ifeq ($(wildcard src/$(CORE_DIR)), ) # CHECK FOR EXISTENCE OF CORE DIRECTORY
 
 all: core_error
 
 else
 
-ifeq ($(wildcard src/core_$(CORE)/build_options.mk), ) # Check for build_options.mk
+ifeq ($(wildcard src/$(CORE_DIR)/build_options.mk), ) # Check for build_options.mk
 report_builds:
 	@echo "CORE=$(CORE)"
 endif
@@ -1011,6 +1021,7 @@ endif
                  CPPINCLUDES="$(CPPINCLUDES)" \
                  FCINCLUDES="$(FCINCLUDES)" \
                  CORE="$(CORE)"\
+                 CORE_DIR="$(CORE_DIR)"\
                  AUTOCLEAN="$(AUTOCLEAN)" \
                  GEN_F90="$(GEN_F90)" \
                  NAMELIST_SUFFIX="$(NAMELIST_SUFFIX)" \
@@ -1018,7 +1029,7 @@ endif
 
 	@echo "$(EXE_NAME)" > .mpas_core_$(CORE)
 	if [ -e src/$(EXE_NAME) ]; then mv src/$(EXE_NAME) .; fi
-	( cd src/core_$(CORE); $(MAKE) ROOT_DIR="$(PWD)" post_build )
+	( cd src/$(CORE_DIR); $(MAKE) ROOT_DIR="$(PWD)" post_build )
 	@echo "*******************************************************************************"
 	@echo $(PRECISION_MESSAGE)
 	@echo $(DEBUG_MESSAGE)
@@ -1037,7 +1048,7 @@ endif
 	@echo $(PIO_MESSAGE)
 	@echo "*******************************************************************************"
 clean:
-	cd src; $(MAKE) clean RM="$(RM)" CORE="$(CORE)"
+	cd src; $(MAKE) clean RM="$(RM)" CORE="$(CORE)" CORE_DIR="$(CORE_DIR)"
 	$(RM) .mpas_core_*
 	$(RM) $(EXE_NAME)
 	$(RM) namelist.$(NAMELIST_SUFFIX).defaults
@@ -1045,7 +1056,7 @@ clean:
 core_error:
 	@echo ""
 	@echo "*******************************************************************************"
-	@echo "     The directory src/core_$(CORE) does not exist."
+	@echo "     The directory $(CORE_DIR) does not exist."
 	@echo "     $(CORE) is not a valid core choice."
 	@echo "*******************************************************************************"
 	@echo ""

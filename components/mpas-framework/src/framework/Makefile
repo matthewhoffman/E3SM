@@ -1,6 +1,6 @@
 .SUFFIXES: .F .c .o
 
-DEPS := $(shell find ../core_$(CORE)/ -type f -name "*.xml" ! -name "*processed.xml")
+DEPS := $(shell find ../$(CORE_DIR)/ -type f -name "*.xml" ! -name "*processed.xml")
 TYPE_DEPS := $(shell find . -type f -name "*_types.inc")
 
 OBJS = mpas_kind_types.o \

@@ -5,10 +5,12 @@ CPPLOCALFLAGS = -DEXCLUDE_INIT_MODE
 $(info "EXCLUDE_INIT_MODE found")
 endif
 
-OCEAN_SHARED_INCLUDES = -I$(PWD)/../framework -I$(PWD)/../external/esmf_time_f90 -I$(PWD)/../operators
-OCEAN_SHARED_INCLUDES += -I$(PWD)/BGC -I$(PWD)/shared -I$(PWD)/analysis_members -I$(PWD)/cvmix/src/shared -I$(PWD)/mode_forward -I$(PWD)/mode_analysis
+FRAMEWORK_DIR = ../../../mpas-framework/src
+UP = ..
+OCEAN_SHARED_INCLUDES = -I$(FRAMEWORK_DIR)/framework -I$(FRAMEWORK_DIR)/external/esmf_time_f90 -I$(FRAMEWORK_DIR)/operators
+OCEAN_SHARED_INCLUDES += -I$(UP)/BGC -I$(UP)/shared -I$(UP)/analysis_members -I$(UP)/cvmix/src/shared -I$(UP)/mode_forward -I$(UP)/mode_analysis
 ifneq "$(EXCLUDE_INIT_MODE)" "true"
-	OCEAN_SHARED_INCLUDES += -I$(PWD)/mode_init
+	OCEAN_SHARED_INCLUDES += -I$(UP)/mode_init
 endif
 
 all: shared libcvmix analysis_members libBGC
@@ -62,14 +64,14 @@ libcvmix:
 	if [ -e cvmix/.git ]; then \
 		(cd cvmix/src/shared; make all FC="$(FC)" FCFLAGS="$(FFLAGS)" FINCLUDES="$(FINCLUDES)") \
 	else \
-		(pwd ; echo "Missing core_ocean/cvmix/.git, did you forget to 'git submodule update --init --recursive' ?"; exit 1) \
+		(pwd ; echo "Missing mpas-ocean/src/cvmix/.git, did you forget to 'git submodule update --init --recursive' ?"; exit 1) \
 	fi
 
 libBGC:
 	if [ -e BGC/.git ]; then \
 		(cd BGC; make all FC="$(FC)" FCFLAGS="$(FFLAGS)" FINCLUDES="$(FINCLUDES)") \
 	else \
-		(echo "Missing core_ocean/BGC/.git, did you forget to 'git submodule update --init --recursive' ?"; exit 1) \
+		(echo "Missing mpas-ocean/src/BGC/.git, did you forget to 'git submodule update --init --recursive' ?"; exit 1) \
 	fi
 
 shared: libcvmix libBGC

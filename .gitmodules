@@ -42,10 +42,11 @@
 	branch = rljacob/e3smconfig/elm-name
 [submodule "components/mpas-ocean/src/cvmix"]
 	path = components/mpas-ocean/src/cvmix
-	url = https://github.com/CVMix/CVMix-src.git
+	url = git@github.com:CVMix/CVMix-src.git
 [submodule "components/mpas-ocean/src/BGC"]
 	path = components/mpas-ocean/src/BGC
-	url = https://github.com/E3SM-Project/Ocean-BGC.git
+	url = git@github.com:E3SM-Project/Ocean-BGC.git
 [submodule "components/mpas-ocean/src/gotm"]
 	path = components/mpas-ocean/src/gotm
-	url = https://github.com/E3SM-Project/GOTMcode.git
+	url = git@github.com:E3SM-Project/GOTMcode.git
+	branch = e3sm/develop

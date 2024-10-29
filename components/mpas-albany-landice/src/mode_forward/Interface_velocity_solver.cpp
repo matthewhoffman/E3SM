@@ -69,7 +69,7 @@ std::vector<int> indexToTriangleID,
 std::vector<int> indexToVertexID, vertexToFCell, vertexProcIDs, triangleToFVertex, indexToEdgeID, edgeToFEdge,
     fVertexToTriangleID, fCellToVertex, iceMarginEdgesLIds, dirichletNodesIDs;
 std::vector<double> dissipationHeatOnPrisms, velocityOnVertices, velocityOnCells,
-    elevationData, thicknessData, betaData, bedTopographyData, stiffnessFactorData, effecPressData, muFrictionData, temperatureDataOnPrisms, smbData, thicknessOnCells, bodyForceOnBasalCell;
+    elevationData, thicknessData, betaData, bedTopographyData, stiffnessFactorData, effecPressData, muFrictionData, bedRoughnessData, temperatureDataOnPrisms, smbData, thicknessOnCells, bodyForceOnBasalCell;
 std::vector<bool> isVertexBoundary, isBoundaryEdge;
 
 // only needed for creating ASCII mesh
@@ -241,6 +241,7 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
     double const* thickness_F, double * beta_F,
     double const* smb_F, double const* temperature_F, double const* stiffnessFactor_F,
     double const* effecPress_F, double const* muFriction_F,
+    double const* bedRoughnessRC_F,
     double* const dirichletVelocityXValue, double* const dirichletVelocitYValue,
     double* u_normal_F, double* bodyForce_F, double* dissipation_heat_F,
     double* xVelocityOnCell, double* yVelocityOnCell, double const* deltat,
@@ -269,7 +270,7 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
   if (!isDomainEmpty) {
 
     std::vector<std::pair<int, int> > marineBdyExtensionMap;
-    importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F, stiffnessFactor_F, effecPress_F, muFriction_F, temperature_F, smb_F,  minThickness);
+    importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F, stiffnessFactor_F, effecPress_F, muFriction_F, bedRougnessRC_F, temperature_F, smb_F,  minThickness);
 
     std::vector<double> regulThk(thicknessData);
     for (int index = 0; index < nVertices; index++)
@@ -286,7 +287,7 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
         Ordering, first_time_step, indexToVertexID, indexToTriangleID, minBeta,
         regulThk, levelsNormalizedThickness, elevationData, thicknessData,
         betaData, bedTopographyData, smbData,
-        stiffnessFactorData, effecPressData, muFrictionData,
+        stiffnessFactorData, effecPressData, muFrictionData, bedRoughnessData
         temperatureDataOnPrisms, bodyForceOnBasalCell, dissipationHeatOnPrisms, velocityOnVertices,
         albany_error, dt);
     *error=albany_error;
@@ -1117,6 +1118,7 @@ double signedTriangleAreaOnSphere(const double* x, const double* y,
 
 void importFields(std::vector<std::pair<int, int> >& marineBdyExtensionMap,  double const* bedTopography_F, double const * lowerSurface_F, double const * thickness_F,
     double const * beta_F, double const* stiffnessFactor_F, double const* effecPress_F, double const* muFriction_F,
+    double const* bedRoughnessRC_F,
     double const * temperature_F, double const * smb_F, double eps) {
 
   int vertexLayerShift = (Ordering == 0) ? 1 : nLayers + 1;
@@ -1131,6 +1133,8 @@ void importFields(std::vector<std::pair<int, int> >& marineBdyExtensionMap,  dou
     effecPressData.assign(nVertices, 1e10);
   if (muFriction_F!= 0)
     muFrictionData.assign(nVertices, 1e10);
+  if (bedRoughnessRC_F!= 0)
+    bedRoughnessData.assign(nVertices, 1e10);
   if(temperature_F != 0)
     temperatureDataOnPrisms.assign(nLayers * nTriangles, 1e10);
   if (smb_F != 0)
@@ -1153,6 +1157,8 @@ void importFields(std::vector<std::pair<int, int> >& marineBdyExtensionMap,  dou
       effecPressData[index] = effecPress_F[iCell] / unit_length;  
     if (muFriction_F != 0)
       muFrictionData[index] = muFriction_F[iCell];
+    if (bedRoughnessRC_F != 0)
+      bedRoughnessData[index] = bedRoughnessRC_F[iCell];
   }
 
   int lElemColumnShift = (Ordering == 1) ? 1 : nTriangles;
@@ -1630,6 +1636,7 @@ bool belongToTria(double const* x, double const* t, double bcoords[3], double ep
     double const* surfaceAirTemperature_F, double const* basalHeatFlux_F,
     double const* stiffnessFactor_F,
     double const* effecPress_F, double const* muFriction_F,
+    double const* bedRoughnessRC_F,
     double const* thickness_F, double const* thicknessUncertainty_F,
     double const* smb_F, double const* smbUncertainty_F,
     double const* bmb_F, double const* bmbUncertainty_F,
@@ -1715,7 +1722,8 @@ bool belongToTria(double const* x, double const* t, double bcoords[3], double ep
 
     std::vector<std::pair<int, int> > marineBdyExtensionMap;  // local map to be created by importFields
     importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F,
-                   stiffnessFactor_F, effecPress_F, muFriction_F, temperature_F, smb_F, minThickness);
+                   stiffnessFactor_F, effecPress_F, muFriction_F, bedRougnessRC_F,
+                   temperature_F, smb_F, minThickness);
 
     import2DFieldsObservations(marineBdyExtensionMap,
                     thicknessUncertainty_F,
@@ -1760,6 +1768,7 @@ bool belongToTria(double const* x, double const* t, double bcoords[3], double ep
     write_ascii_mesh_field(betaData, "beta");
     write_ascii_mesh_field(muFrictionData, "mu");
     write_ascii_mesh_field(muLogData, "mu_log");
+    write_ascii_mesh_field(bedRoughnessData, "bed_roughness");
     
     write_ascii_mesh_field(stiffnessFactorData, "stiffening_factor");
     write_ascii_mesh_field(stiffnessLogData, "stiffening_factor_log");

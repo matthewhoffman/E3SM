@@ -240,7 +240,7 @@ void velocity_solver_init_fo(double const *levelsRatio_F) {
 void velocity_solver_solve_fo(double const* bedTopography_F, double const* lowerSurface_F,
     double const* thickness_F, double * beta_F,
     double const* smb_F, double const* temperature_F, double const* stiffnessFactor_F,
-    double const* effecPress_F, double const* muFriction_F,
+    double* effecPress_F, double const* muFriction_F,
     double const* bedRoughnessRC_F,
     double* const dirichletVelocityXValue, double* const dirichletVelocitYValue,
     double* u_normal_F, double* bodyForce_F, double* dissipation_heat_F,
@@ -270,7 +270,7 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
   if (!isDomainEmpty) {
 
     std::vector<std::pair<int, int> > marineBdyExtensionMap;
-    importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F, stiffnessFactor_F, effecPress_F, muFriction_F, bedRougnessRC_F, temperature_F, smb_F,  minThickness);
+    importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F, stiffnessFactor_F, effecPress_F, muFriction_F, bedRoughnessRC_F, temperature_F, smb_F,  minThickness);
 
     std::vector<double> regulThk(thicknessData);
     for (int index = 0; index < nVertices; index++)
@@ -287,7 +287,7 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
         Ordering, first_time_step, indexToVertexID, indexToTriangleID, minBeta,
         regulThk, levelsNormalizedThickness, elevationData, thicknessData,
         betaData, bedTopographyData, smbData,
-        stiffnessFactorData, effecPressData, muFrictionData, bedRoughnessData
+        stiffnessFactorData, effecPressData, muFrictionData, bedRoughnessData,
         temperatureDataOnPrisms, bodyForceOnBasalCell, dissipationHeatOnPrisms, velocityOnVertices,
         albany_error, dt);
     *error=albany_error;
@@ -299,6 +299,8 @@ void velocity_solver_solve_fo(double const* bedTopography_F, double const* lower
     exportBodyForce(bodyForce_F);
   }
   exportBeta(beta_F);
+
+  exportEffectivePressure(effecPress_F);
 
   mapVerticesToCells(velocityOnVertices, &velocityOnCells[0], 2, nLayers,
       Ordering);
@@ -1158,7 +1160,7 @@ void importFields(std::vector<std::pair<int, int> >& marineBdyExtensionMap,  dou
     if (muFriction_F != 0)
       muFrictionData[index] = muFriction_F[iCell];
     if (bedRoughnessRC_F != 0)
-      bedRoughnessData[index] = bedRoughnessRC_F[iCell];
+      bedRoughnessData[index] = bedRoughnessRC_F[iCell] / unit_length;
   }
 
   int lElemColumnShift = (Ordering == 1) ? 1 : nTriangles;
@@ -1365,6 +1367,18 @@ void exportBeta(double * beta_F) {
   allToAll (beta_F,  &sendCellsListReversed, &recvCellsListReversed, 1);
 #endif
   allToAll (beta_F,  sendCellsList_F, recvCellsList_F, 1);
+}
+
+void exportEffectivePressure(double * effecPress_F) {
+  std::fill(effecPress_F, effecPress_F + nCells_F, 0.);
+  for (int index = 0; index < nVertices; index++) {
+    int fCell = vertexToFCell[index];
+    effecPress_F[fCell] = effecPressData[index] * unit_length;
+  }
+#ifdef  changeTrianglesOwnership
+  allToAll (effecPress_F,  &sendCellsListReversed, &recvCellsListReversed, 1);
+#endif
+  allToAll (effecPress_F,  sendCellsList_F, recvCellsList_F, 1);
 }
 
 void createReducedMPI(int nLocalEntities, MPI_Comm& reduced_comm_id) {
@@ -1722,7 +1736,7 @@ bool belongToTria(double const* x, double const* t, double bcoords[3], double ep
 
     std::vector<std::pair<int, int> > marineBdyExtensionMap;  // local map to be created by importFields
     importFields(marineBdyExtensionMap, bedTopography_F, lowerSurface_F, thickness_F, beta_F,
-                   stiffnessFactor_F, effecPress_F, muFriction_F, bedRougnessRC_F,
+                   stiffnessFactor_F, effecPress_F, muFriction_F, bedRoughnessRC_F,
                    temperature_F, smb_F, minThickness);
 
     import2DFieldsObservations(marineBdyExtensionMap,
